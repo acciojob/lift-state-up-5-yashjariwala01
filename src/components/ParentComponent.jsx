@@ -1,23 +1,15 @@
-import React, {useState} from 'react'
-import ChildComponent from './ChildComponent'
+import React, { useState } from 'react'
+import ChildCompomponent from './ChildComponent';
 
-const ParentComponent = () => {
-    const [isLoggedIn, setIsloggedIn] = useState(false);
-    const [showForm, setShowForm] = useState(true);
+function ParentComponent() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  return (
-    <div>
-        {showForm && (<form action="">
-            <label htmlFor="username">Username</label>
-            <input type="text" id='username' />
-            <br />
-            <br />
-            <label htmlFor="password">Password</label>
-            <input type="password" id='password' />
-        </form>)}
-      <ChildComponent isLoggedIn={isLoggedIn} setIsloggedIn={setIsloggedIn} setShowForm={setShowForm} />
-    </div>
-  )
+    return (
+        <div >
+            <h1>Parent Component</h1>
+            {isLoggedIn ? <p>You are logged in!</p> : <ChildCompomponent setIsLoggedIn={setIsLoggedIn} />}
+        </div>
+    )
 }
 
 export default ParentComponent
